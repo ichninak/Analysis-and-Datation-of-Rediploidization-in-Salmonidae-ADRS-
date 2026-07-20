@@ -1,0 +1,2 @@
+# Analysis-and-Datation-of-Rediploidization-in-Salmonidae-ADRS-
+Those script are specialized on the rediploidization of Salmonidae specificaly O.mykiss. We know that we have both type of rediploidization, one AORe for (Ancient Ohnologs Resolution) that occurs after the WGD (Whole Genome Duplication) and before speciation and LORe (Lineage-specific Ohnologs Resolution) that occurs after speciation.
