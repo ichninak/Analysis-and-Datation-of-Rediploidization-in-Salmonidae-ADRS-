@@ -32,7 +32,7 @@ merged <- read.table("merged.tsv",
                      stringsAsFactors = FALSE,
                      col.names = c("esoxID", "gene1", "gene2", "flag"))
 
-cat("merged.tsv :", nrow(merged), "lignes\n")
+
 head(merged)
 
 # Construction of "gene1&gene2" 
@@ -64,16 +64,11 @@ kaks$flag <- pair_dict[kaks$pair]
 
 # check pairs 
 n_unmatched <- sum(is.na(kaks$flag))
-cat("Paires non trouvées dans merged.tsv :", n_unmatched, "\n")
 
 # Separation 
 aore <- kaks %>% filter(flag == 0)
 lore <- kaks %>% filter(flag == 1)
 unmatched <- kaks %>% filter(is.na(flag))
-
-cat("AORE :", nrow(aore), "lignes\n")
-cat("LORE :", nrow(lore), "lignes\n")
-cat("Non matché :", nrow(unmatched), "lignes\n")
 
 # Save 
 write.table(aore, "AORE.kaks", sep = "\t", row.names = FALSE, quote = FALSE)
@@ -90,10 +85,6 @@ write.table(unmatched, "unmatched.kaks", sep = "\t", row.names = FALSE, quote = 
 
 
 ####### lore aore
-
-
-cat("Nombre de paires brutes :", nrow(lore), "\n")
-cat("Nombre de paires brutes :", nrow(aore), "\n")
 
 # clean data
 lore <- lore %>%
@@ -123,11 +114,6 @@ aore_clean <- aore %>%
   filter(Ks <= 2) %>%                                 
   filter(Pvalue < 0.05)                               
 
-cat("Number of pairs after filterage:", nrow(lore_clean), "\n")
-cat("Pairs remove:", nrow(lore) - nrow(lore_clean), "\n\n")
-
-cat("Number of pairs after filterage:", nrow(aore_clean), "\n")
-cat("Pairs remove:", nrow(aore) - nrow(aore_clean), "\n\n")
 
 # Stats
 cat("Median Ka/Ks  :", round(median(aore_clean$KaKs), 3), "\n")
@@ -272,8 +258,6 @@ cas_file <- cas_file %>%
     TRUE ~ cas # keep other same 
   ))
 
-cat("GeneID_par_cas.tsv :", nrow(cas_file), "lignes\n")
-cat("Catégories trouvées :", paste(sort(unique(cas_file$cas)), collapse = ", "), "\n\n")
 
 # ============================================================
 # 2. Dictioniary geneID -> cas (categories)
@@ -313,7 +297,6 @@ pair_to_cas <- c(
 # Annotation of file kaks
 kaks$cas <- pair_to_cas[kaks$pair]
 
-cat("Lignes kaks annotées :", sum(!is.na(kaks$cas)), "/", nrow(kaks), "\n\n")
 
 # ============================================================
 # loop create a file by categories 
