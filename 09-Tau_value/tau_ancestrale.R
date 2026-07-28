@@ -21,7 +21,7 @@ mykiss_genes  <- bed$gene_id
 # ============================================
 # we need to keep each line of O.mykiss genes that is ohnologs so minimum 2 genes 
 
-lines <- readLines("../Ohno_analysis/ancGenes.Protacanthopterygii.list")
+lines <- readLines("../08-Ohnologue_analysis/ancGenes.Protacanthopterygii.list")
 
 double_rows <- list()
 for (line in lines) {
@@ -92,11 +92,11 @@ fam_long <- fam_long %>%
 # ============================================
 # load windows
 # ============================================
-win_cas_1 <- readRDS("../cas_Circos/win_cas_1.rds")
-win_cas_2 <- readRDS("../cas_Circos/win_cas_2.rds")
-win_cas_3 <- readRDS("../cas_Circos/win_cas_3.rds")
-win_cas_4 <- readRDS("../cas_Circos/win_cas_4.rds")
-win_cas_5 <- readRDS("../cas_Circos/win_cas_5.rds")
+win_cas_1 <- readRDS("../03-Cas_circos/win_cas_1.rds")
+win_cas_2 <- readRDS("../03-Cas_circos/win_cas_2.rds")
+win_cas_3 <- readRDS("../03-Cas_circos/win_cas_3.rds")
+win_cas_4 <- readRDS("../03-Cas_circos/win_cas_4.rds")
+win_cas_5 <- readRDS("../03-Cas_circos/win_cas_5.rds")
 
 all_windows <- bind_rows(
   win_cas_1 %>% select(chr, win_start, win_end) %>% mutate(cas = "AORe"),
