@@ -215,10 +215,10 @@ extract_link_ohno <- function(chr_nbr, links_ohno){
 # load file
 # ==============
 
-karyo <- read.table("../Ancestor_Circos/karyo_mykiss.tsv", header=TRUE, sep="\t", stringsAsFactors=FALSE)
+karyo <- read.table("../01-Ancestor_circos/karyo_mykiss.tsv", header=TRUE, sep="\t", stringsAsFactors=FALSE)
 karyo$chr <- as.character(karyo$chr)
 coord <- read.delim(
-  "../Ancestor_Circos/coord_mykiss.tsv",
+  "../01-Ancestor_circos/coord_mykiss.tsv",
   header = FALSE,
   sep = "\t",
   quote = "",
@@ -228,14 +228,14 @@ coord <- read.delim(
 write.table(coord, "coord.tsv", sep = "\t", quote = FALSE, row.names = FALSE)
 
 pair_files <- c(
-  "../Ancestor_Circos/lore_gar_mykiss1_Salmonidae.tsv",
-  "../Ancestor_Circos/lore_gar_mykiss1_Salmoninae.tsv",
-  "../Ancestor_Circos/lore_gar_mykiss1_NAME11_combine.tsv",
-  "../Ancestor_Circos/lore_gar_mykiss1_NAME13_combine.tsv"
+  "../01-Ancestor_circos/lore_gar_mykiss1_Salmonidae.tsv",
+  "../01-Ancestor_circos/lore_gar_mykiss1_Salmoninae.tsv",
+  "../01-Ancestor_circos/lore_gar_mykiss1_NAME11_combine.tsv",
+  "../01-Ancestor_circos/lore_gar_mykiss1_NAME13_combine.tsv"
 )
 
-resolved_IDs_circos <- readRDS("../Barplot_analysis/resolved_IDs_circos.rds")
-resolved_IDs <- readRDS("../Barplot_analysis/resolved_IDs.rds")
+resolved_IDs_circos <- readRDS("../02-Barplot_analysis/resolved_IDs_circos.rds")
+resolved_IDs <- readRDS("../02-Barplot_analysis/resolved_IDs.rds")
 
 links_ohno <- prepare_ohno_links(pair_files, "coord.tsv", resolved_IDs_circos)
 links_ohno_bin <- prepare_ohno_links(pair_files, "coord.tsv", resolved_IDs)
@@ -272,11 +272,11 @@ col_test <- c(
 )
 
 
-win_cas_1 <- readRDS("../cas_Circos/win_cas_1.rds")
-win_cas_2 <- readRDS("../cas_Circos/win_cas_2.rds")
-win_cas_3 <- readRDS("../cas_Circos/win_cas_3.rds")
-win_cas_4 <- readRDS("../cas_Circos/win_cas_4.rds")
-win_cas_5 <- readRDS("../cas_Circos/win_cas_5.rds")
+win_cas_1 <- readRDS("../03-Cas_circos/win_cas_1.rds")
+win_cas_2 <- readRDS("../03-Cas_circos/win_cas_2.rds")
+win_cas_3 <- readRDS("../03-Cas_circos/win_cas_3.rds")
+win_cas_4 <- readRDS("../03-Cas_circos/win_cas_4.rds")
+win_cas_5 <- readRDS("../03-Cas_circos/win_cas_5.rds")
 
 common_cols <- c("chr", "win_start", "win_end", "state", "ratio_AORE", "esoxIDs")
 
@@ -288,7 +288,7 @@ win_all <- rbind(
   mutate(win_cas_5[, common_cols],  cas = "LORe4")
 )
 
-ks_per_win    <- readRDS("../Ks_value/ks_per_win.rds")
+ks_per_win    <- readRDS("../07-Ks_value/ks_per_win.rds")
 
 # ==============
 # PIPELINE
@@ -448,7 +448,7 @@ all_cas <- bind_rows(cas_list, .id = "cas") %>%
   filter(chr %in% chrs_final) %>%
   mutate(chr = factor(chr, levels = chrs_final))
 
-ks_per_win <- readRDS("../Ks_value/ks_per_win.rds")
+ks_per_win <- readRDS("../07-Ks_value/ks_per_win.rds")
 ks_df <- ks_per_win %>%
   filter(chr %in% chrs_final, !is.na(Ks_mean)) %>%
   mutate(chr = factor(chr, levels = chrs_final))
