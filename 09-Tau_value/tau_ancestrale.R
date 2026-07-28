@@ -21,7 +21,7 @@ mykiss_genes  <- bed$gene_id
 # ============================================
 # we need to keep each line of O.mykiss genes that is ohnologs so minimum 2 genes 
 
-lines <- readLines("../08-Ohnologue_analysis/ancGenes.Protacanthopterygii.list")
+lines <- readLines("../08-ohnologue_analysis/ancGenes.Protacanthopterygii.list")
 
 double_rows <- list()
 for (line in lines) {
