@@ -23,18 +23,18 @@ coord <- read.delim(
 write.table(coord, "coord.tsv", sep = "\t", quote = FALSE, row.names = FALSE)
 
 links_all <- rbind(
-  read_links("../cas_Circos/link_cas_1.tsv",    "AORe"),
-  read_links("../cas_Circos/link_cas_2.tsv",    "LORe1"),
-  read_links("../cas_Circos/link_cas_3.tsv",    "LORe2"),
-  read_links("../cas_Circos/link_cas_4.tsv",    "LORe3"),
-  read_links("../cas_Circos/link_cas_5.tsv",    "LORe4")
+  read_links("../03-Cas_circos/link_cas_1.tsv",    "AORe"),
+  read_links("../03-Cas_circos/link_cas_2.tsv",    "LORe1"),
+  read_links("../03-Cas_circos/link_cas_3.tsv",    "LORe2"),
+  read_links("../03-Cas_circos/link_cas_4.tsv",    "LORe3"),
+  read_links("../03-Cas_circos/link_cas_5.tsv",    "LORe4")
 )
 
-win_cas_1 <- readRDS("../cas_Circos/win_cas_1.rds")
-win_cas_2 <- readRDS("../cas_Circos/win_cas_2.rds")
-win_cas_3 <- readRDS("../cas_Circos/win_cas_3.rds")
-win_cas_4 <- readRDS("../cas_Circos/win_cas_4.rds")
-win_cas_5 <- readRDS("../cas_Circos/win_cas_5.rds")
+win_cas_1 <- readRDS("../03-Cas_circos/win_cas_1.rds")
+win_cas_2 <- readRDS("../03-Cas_circos/win_cas_2.rds")
+win_cas_3 <- readRDS("../03-Cas_circos/win_cas_3.rds")
+win_cas_4 <- readRDS("../03-Cas_circos/win_cas_4.rds")
+win_cas_5 <- readRDS("../03-Cas_circos/win_cas_5.rds")
 
 common_cols <- c("chr", "win_start", "win_end", "state", "ratio_AORE", "esoxIDs")
 
@@ -46,18 +46,18 @@ win_all <- rbind(
   mutate(win_cas_5[, common_cols],  cas = "LORe4")
 )
 
-resolved_IDs_circos <- readRDS("../Barplot_analysis/resolved_IDs_circos.rds")
-resolved_IDs <- readRDS("../Barplot_analysis/resolved_IDs.rds")
+resolved_IDs_circos <- readRDS("../02-Barplot_analysis/resolved_IDs_circos.rds")
+resolved_IDs <- readRDS("../02-Barplot_analysis/resolved_IDs.rds")
 
 pair_files <- c(
-  "../Ancestor_Circos/lore_gar_mykiss1_Salmonidae.tsv",
-  "../Ancestor_Circos/lore_gar_mykiss1_Salmoninae.tsv",
-  "../Ancestor_Circos/lore_gar_mykiss1_NAME11_combine.tsv",
-  "../Ancestor_Circos/lore_gar_mykiss1_NAME13_combine.tsv"
+  "../01-Ancestor_circos/lore_gar_mykiss1_Salmonidae.tsv",
+  "../01-Ancestor_circos/lore_gar_mykiss1_Salmoninae.tsv",
+  "../01-Ancestor_circos/lore_gar_mykiss1_NAME11_combine.tsv",
+  "../01-Ancestor_circoss/lore_gar_mykiss1_NAME13_combine.tsv"
 )
 
-ks_per_win    <- readRDS("../Ks_value/ks_per_win.rds")
-# gene_ks_smooth <- readRDS("../Ks_value/gene_ks_smooth.rds")  # si tu veux l'alternative
+ks_per_win    <- readRDS("../07-Ks_value/ks_per_win.rds")
+
 
 
 # ===============
