@@ -94,14 +94,14 @@ process_density <- function(windows_ratio, gff_file, output_density) {
 # ======================
 gff_file <- "GCF_013265735.2_USDA_OmykA_1.1_genomic.gff"
 
-win_salmonidae = readRDS("../Ancestor_Circos/win_salmoninae.rds")
-win_NAME13 = readRDS("../Ancestor_Circos/win_NAME13.rds")
+win_salmonidae = readRDS("../01-Ancestor_circos/win_salmoninae.rds")
+win_NAME13 = readRDS("../01-Ancestor_circos/win_NAME13.rds")
 
-win_cas_1 <- readRDS("../cas_Circos/win_cas_1.rds")
-win_cas_2 <- readRDS("../cas_Circos/win_cas_2.rds")
-win_cas_3 <- readRDS("../cas_Circos/win_cas_3.rds")
-win_cas_4 <- readRDS("../cas_Circos/win_cas_4.rds")
-win_cas_5 <- readRDS("../cas_Circos/win_cas_5.rds")
+win_cas_1 <- readRDS("../03-Cas_circos/win_cas_1.rds")
+win_cas_2 <- readRDS("../03-Cas_circos/win_cas_2.rds")
+win_cas_3 <- readRDS("../03-Cas_circos/win_cas_3.rds")
+win_cas_4 <- readRDS("../03-Cas_circos/win_cas_4.rds")
+win_cas_5 <- readRDS("../03-Cas_circos/win_cas_5.rds")
 
 # ======================
 # PIPELINE
