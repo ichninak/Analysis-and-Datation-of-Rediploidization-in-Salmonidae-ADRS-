@@ -212,10 +212,10 @@ circos_precise_resolved_pdf <- function(karyo, links_file, name_output,
 # load files 
 # ======================
 
-karyo <- read.table("../Ancestor_Circos/karyo_mykiss.tsv", header=TRUE, sep="\t", stringsAsFactors=FALSE)
+karyo <- read.table("../01-Ancestor_circos/karyo_mykiss.tsv", header=TRUE, sep="\t", stringsAsFactors=FALSE)
 karyo$chr <- as.character(karyo$chr)
 coord <- read.delim(
-  "../Ancestor_Circos/coord_mykiss.tsv",
+  "../01-Ancestor_circos/coord_mykiss.tsv",
   header = FALSE,
   sep = "\t",
   quote = "",
@@ -223,13 +223,13 @@ coord <- read.delim(
   col.names = c("chr", "start", "end", "gene")
 )
 
-win_salmonidae <- readRDS("../Ancestor_Circos/win_salmonidae.rds")
-win_salmoninae <- readRDS("../Ancestor_Circos/win_salmoninae.rds")
-win_NAME11 <- readRDS("../Ancestor_Circos/win_NAME11.rds")
-win_NAME13 <- readRDS("../Ancestor_Circos/win_NAME13.rds")
+win_salmonidae <- readRDS("../01-Ancestor_circos/win_salmonidae.rds")
+win_salmoninae <- readRDS("../01-Ancestor_circos/win_salmoninae.rds")
+win_NAME11 <- readRDS("../01-Ancestor_circos/win_NAME11.rds")
+win_NAME13 <- readRDS("../01-Ancestor_circos/win_NAME13.rds")
 
-resolved_IDs <- readRDS("../Barplot_analysis/resolved_IDs.rds")
-resolved_IDs_circos <- readRDS("../Barplot_analysis/resolved_IDs_circos.rds")
+resolved_IDs <- readRDS("../02-Barplot_analysis/resolved_IDs.rds")
+resolved_IDs_circos <- readRDS("../02-Barplot_analysis/resolved_IDs_circos.rds")
 
 # ======================
 # PIPELINE
@@ -238,11 +238,11 @@ resolved_IDs_circos <- readRDS("../Barplot_analysis/resolved_IDs_circos.rds")
 
 # preparation of dataframe (links) (link for build circos)
 
-prepare_data_circos(coord, "../Ancestor_Circos/lore_gar_mykiss1_Salmonidae.tsv", "link_cas_1.tsv", resolved_IDs_circos$AORE_Salmonidae)
-prepare_data_circos(coord, "../Ancestor_Circos/lore_gar_mykiss1_Salmonidae.tsv", "link_cas_2.tsv", resolved_IDs_circos$LORE_resolution_Salmonidae)
-prepare_data_circos(coord, "../Ancestor_Circos/lore_gar_mykiss1_Salmoninae.tsv", "link_cas_3.tsv", resolved_IDs_circos$LORE_resolution_Salmoninae)
-prepare_data_circos(coord, "../Ancestor_Circos/lore_gar_mykiss1_NAME11_combine.tsv", "link_cas_4.tsv", resolved_IDs_circos$LORE_resolution_NAME11)
-prepare_data_circos(coord, "../Ancestor_Circos/lore_gar_mykiss1_NAME13_combine.tsv", "link_cas_5.tsv", resolved_IDs_circos$LORE_NAME13)
+prepare_data_circos(coord, "../01-Ancestor_circos/lore_gar_mykiss1_Salmonidae.tsv", "link_cas_1.tsv", resolved_IDs_circos$AORE_Salmonidae)
+prepare_data_circos(coord, "../01-Ancestor_circos/lore_gar_mykiss1_Salmonidae.tsv", "link_cas_2.tsv", resolved_IDs_circos$LORE_resolution_Salmonidae)
+prepare_data_circos(coord, "../01-Ancestor_circos/lore_gar_mykiss1_Salmoninae.tsv", "link_cas_3.tsv", resolved_IDs_circos$LORE_resolution_Salmoninae)
+prepare_data_circos(coord, "../01-Ancestor_circos/lore_gar_mykiss1_NAME11_combine.tsv", "link_cas_4.tsv", resolved_IDs_circos$LORE_resolution_NAME11)
+prepare_data_circos(coord, "../01-Ancestor_circos/lore_gar_mykiss1_NAME13_combine.tsv", "link_cas_5.tsv", resolved_IDs_circos$LORE_NAME13)
 
 
 # preparation of dataframe
