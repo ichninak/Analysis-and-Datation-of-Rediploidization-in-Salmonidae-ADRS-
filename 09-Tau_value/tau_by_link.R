@@ -30,7 +30,7 @@ print(table(gene_cas$cas, useNA = "ifany"))
 # ============================================
 # load merged.tsv pairs of ohnologs
 # ============================================
-merged <- read.table("../Ohno_analysis/merged.tsv", header = FALSE, sep = "\t",
+merged <- read.table("../08-ohnologue_analysis/merged.tsv", header = FALSE, sep = "\t",
                      stringsAsFactors = FALSE,
                      colClasses = c("character", "character", "character", "character"))
 colnames(merged) <- c("esoxID", "gene1", "gene2", "flag")
