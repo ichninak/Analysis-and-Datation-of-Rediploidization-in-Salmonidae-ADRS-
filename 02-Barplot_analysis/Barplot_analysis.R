@@ -178,7 +178,7 @@ get_resolved_esoxIDs <- function(win_salmonidae, win_salmoninae, win_NAME11, win
   
   
   # ================================================
-  # Résultat 
+  # Results
   # ================================================
   
   return(list(
@@ -235,7 +235,7 @@ get_resolved_esoxIDs_circos <- function(genes_salmonidae, genes_salmoninae, gene
   
   
   # ================================================
-  # Résultat : liste nommée des esoxID par catégorie
+  # Results : list of esoxID by categories
   # ================================================
   
   return(list(
@@ -248,18 +248,18 @@ get_resolved_esoxIDs_circos <- function(genes_salmonidae, genes_salmoninae, gene
 }
 
 # ======================
-# Chargement des fichier
+# load files
 # ======================
 
-win_salmonidae <- readRDS("../Ancestor_Circos/win_salmonidae.rds")
-win_salmoninae <- readRDS("../Ancestor_Circos/win_salmoninae.rds")
-win_NAME11 <- readRDS("../Ancestor_Circos/win_NAME11.rds")
-win_NAME13 <- readRDS("../Ancestor_Circos/win_NAME13.rds")
+win_salmonidae <- readRDS("../01-Ancestor_circos/win_salmonidae.rds")
+win_salmoninae <- readRDS("../01-Ancestor_circos/win_salmoninae.rds")
+win_NAME11 <- readRDS("../01-Ancestor_circos/win_NAME11.rds")
+win_NAME13 <- readRDS("../01-Ancestor_circos/win_NAME13.rds")
 
-gene_salmonidae <- readRDS("../Ancestor_Circos/gene_salmonidae.rds")
-gene_salmoninae <- readRDS("../Ancestor_Circos/gene_salmoninae.rds")
-gene_NAME11 <- readRDS("../Ancestor_Circos/gene_NAME11.rds")
-gene_NAME13 <- readRDS("../Ancestor_Circos/gene_NAME13.rds")
+gene_salmonidae <- readRDS("../01-Ancestor_circos/gene_salmonidae.rds")
+gene_salmoninae <- readRDS("../01-Ancestor_circos/gene_salmoninae.rds")
+gene_NAME11 <- readRDS("../01-Ancestor_circos/gene_NAME11.rds")
+gene_NAME13 <- readRDS("../01-Ancestor_circos/gene_NAME13.rds")
 
 # ======================
 # PIPELINE
